@@ -24,13 +24,16 @@ public class LectorDatos {
     }
 
     public ArrayList obtenerPreciosActualizados() {
-        ArrayList precios = new ArrayList<>();
+        ArrayList precios = new ArrayList<Double>();
         String line = "";
         String splitBy = ",";
         try {
             BufferedReader br = new BufferedReader(new FileReader("documents/precios_enero.txt"));
             while ((line = br.readLine()) != null) {
                 String[] datos = line.split(splitBy);
+                for(int i=0; i<datos.length; i++) {
+                    precios.add(Double.parseDouble(datos[i]));
+                }
             }
         } catch (IOException e) {
             System.out.println("No se encuentra el archivo de lecturas: " + e);

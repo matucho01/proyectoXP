@@ -95,12 +95,12 @@ public class Turno {
                 (lecturaFinalDiesel-lecturaInicialDiesel)));
     }
 
-    public ArrayList<Double> calcularVentasEnDolares() {
+    /*public ArrayList<Double> calcularVentasEnDolares() {
         for(int i=0; i<) {
 
         }
         return
-    }
+    }*/
 
     @Override
     public String toString() {
