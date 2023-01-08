@@ -71,4 +71,13 @@ public class ReporteTurnoTest {
         assertEquals(expected, reporteTurno.getCobrosRetiros(), 0.01);
     }
 
+    @Test
+    public void given_date_shift_when_get_payments_credits_then_ok(){
+        reporteTurno.obtenerPagosCredito("02/10/22","2");
+        double expected[] = {0,39.15,71.20};
+        assertEquals(expected[0],reporteTurno.getVentasCreditoSuper(),0.01);
+        assertEquals(expected[1],reporteTurno.getVentasCreditoExtra(),0.01);
+        assertEquals(expected[2],reporteTurno.getVentasCreditoDiesel(),0.01);
+    }
+
 }

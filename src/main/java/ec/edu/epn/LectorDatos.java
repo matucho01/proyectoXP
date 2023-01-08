@@ -62,6 +62,26 @@ public class LectorDatos {
         return ventas;
     }
 
+    public ArrayList obtenerVentasCredito(){
+        ArrayList<ArrayList> ventas = new ArrayList<>();
+        String line = "";
+        String splitBy = ",";
+        try {
+            BufferedReader br = new BufferedReader(new FileReader("documents/ventas_credito.txt"));
+            while ((line = br.readLine()) != null) {
+                String[] datos = line.split(splitBy);
+                ArrayList<String> ventaTurno =  new ArrayList();
+                for(int i=0; i<datos.length; i++) {
+                    ventaTurno.add(datos[i]);
+                }
+                ventas.add(ventaTurno);
+            }
+        } catch (IOException e) {
+            System.out.println("No se encuentra el archivo de lecturas: " + e);
+        }
+        return ventas;
+    }
+
     public double parseDouble(String dato) {
         return Double.parseDouble(dato);
     }

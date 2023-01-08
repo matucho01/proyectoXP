@@ -10,6 +10,9 @@ public class ReporteTurno {
     private double ventasLubricantes;
     private int lubricantesVendidos;
     private double cobrosRetiros;
+    private double ventasCreditoSuper;
+    private double ventasCreditoExtra;
+    private double ventasCreditoDiesel;
     private ArrayList<Integer> billetes;
     private ArrayList<Integer> monedas;
     private LectorDatos lectorDatos = new LectorDatos();
@@ -44,6 +47,17 @@ public class ReporteTurno {
 
     public void calcularVentasLubricantes(){
         this.ventasLubricantes = this.lubricantesVendidos*3.5;
+    }
+
+    public void obtenerPagosCredito(String fecha,String tipoTurno){
+        ArrayList<ArrayList<String>> ventas = lectorDatos.obtenerVentasCredito();
+        for (int i=0;i< ventas.size();i++){
+            if (ventas.get(i).get(0).equals(fecha) && ventas.get(i).get(1).equals(tipoTurno)){
+                this.ventasCreditoSuper = Double.parseDouble(ventas.get(i).get(2));
+                this.ventasCreditoExtra = Double.parseDouble(ventas.get(i).get(3));
+                this.ventasCreditoDiesel = Double.parseDouble(ventas.get(i).get(4));
+            }
+        }
     }
 
     public void registrarPagoRetiro(int respuesta) {
@@ -97,5 +111,17 @@ public class ReporteTurno {
 
     public double getCobrosRetiros() {
         return this.cobrosRetiros;
+    }
+
+    public double getVentasCreditoSuper() {
+        return ventasCreditoSuper;
+    }
+
+    public double getVentasCreditoExtra() {
+        return ventasCreditoExtra;
+    }
+
+    public double getVentasCreditoDiesel() {
+        return ventasCreditoDiesel;
     }
 }
