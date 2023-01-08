@@ -37,4 +37,11 @@ public class ReporteTurnoTest {
         assertEquals(expected,reporteTurno.getVentasEfectivo(),0.01);
     }
 
+    @Test
+    public void given_date_shift_when_get_payments_then_ok(){
+        reporteTurno.obtenerPagosTarjeta("02/10/22","1");
+        double expected = 340.13;
+        assertEquals(expected,reporteTurno.getVentasTarjeta(),0.01);
+    }
+
 }

@@ -5,8 +5,10 @@ import java.util.Arrays;
 
 public class ReporteTurno {
     private double ventasEfectivo;
+    private double ventasTarjeta;
     private ArrayList<Integer> billetes;
     private ArrayList<Integer> monedas;
+    private LectorDatos lectorDatos = new LectorDatos();
     public void ingresoEfectivoBilletes(int cien, int cincuenta, int veinte, int diez, int cinco, int uno) {
         this.billetes = new ArrayList<Integer>(Arrays.asList(cien,cincuenta,veinte,diez,cinco,uno));
     }
@@ -23,6 +25,15 @@ public class ReporteTurno {
         this.ventasEfectivo = efectivoBilletes+efectivoMonedas;
     }
 
+    public void obtenerPagosTarjeta(String fecha,String tipoTurno){
+        ArrayList<ArrayList<String>> ventas = lectorDatos.obtenerVentasTarjeta();
+        for (int i=0;i< ventas.size();i++){
+            if (ventas.get(i).get(0).equals(fecha) && ventas.get(i).get(1).equals(tipoTurno)){
+                this.ventasTarjeta = Double.parseDouble(ventas.get(i).get(2)) + Double.parseDouble(ventas.get(i).get(3));
+            }
+        }
+    }
+
     public double getVentasEfectivo() {
         return ventasEfectivo;
     }
@@ -33,5 +44,9 @@ public class ReporteTurno {
 
     public ArrayList<Integer> getMonedas() {
         return monedas;
+    }
+
+    public double getVentasTarjeta() {
+        return ventasTarjeta;
     }
 }
