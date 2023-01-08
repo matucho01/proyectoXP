@@ -29,8 +29,8 @@ public class Pedido {
     }
     public boolean generarArchivo() {
         try {
-            String nombreArchivo = "pedido"+this.fechaPedido+".txt";
-            File archivo = new File(nombreArchivo);
+            String nombreArchivo = "pedido_"+this.fechaPedido+".txt";
+            File archivo = new File("/pedidos", nombreArchivo);
             if(archivo.createNewFile()) {
                 System.out.println("Archivo creado exitosamente");
                 FileWriter fw = new FileWriter(nombreArchivo);
