@@ -15,6 +15,7 @@ public class ReporteTurnoTest {
         reporteTurno = new ReporteTurno();
         reporteTurno.ingresoEfectivoBilletes(1,1,8,12,21,26);
         reporteTurno.ingresoEfectivoMonedas(105,50,120,150,73,89);
+        reporteTurno.ingresarLubricantesVendidos(14);
     }
     @Test
     public void given_six_integers_when_inserting_number_bills_then_ok(){
@@ -46,14 +47,12 @@ public class ReporteTurnoTest {
 
     @Test
     public void given_number_lubricants_when_insert_then_ok(){
-        reporteTurno.ingresarLubricantesVendidos(14);
         int expected = 14;
         assertEquals(expected,reporteTurno.getLubricantesVendidos());
     }
 
     @Test
     public void given_number_lubricants_when_calculate_sales_then_ok(){
-        reporteTurno.ingresarLubricantesVendidos(14);
         reporteTurno.calcularVentasLubricantes();
         double expected = 49;
         assertEquals(expected,reporteTurno.getVentasLubricantes(),0.01);
