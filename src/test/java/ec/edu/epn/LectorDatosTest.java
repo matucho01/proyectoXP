@@ -15,7 +15,7 @@ public class LectorDatosTest {
                 354765.65, 541378.43, 787678.23, 354801.41, 0);
         Turno turno2 = new Turno("02/10/22", 541378.43, 787678.23,
                 354801.41, 541478.43, 787778.23, 354901.41, 1);
-        Turno turno3 = new Turno("02/10/2022", 541478.43, 787778.23,
+        Turno turno3 = new Turno("02/10/22", 541478.43, 787778.23,
                 354901.41, 541578.43, 787878.23, 355001.41, 2);
         ArrayList<Turno> expected = new ArrayList<>(Arrays.asList(turno1, turno2, turno3));
         ArrayList<Turno> actual = l.obtenerLecturasPorTurno();
