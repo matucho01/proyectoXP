@@ -5,12 +5,12 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 public class Pedido {
-    private float galonesSuper;
-    private float galonesExtra;
-    private float galonesDiesel;
+    private int galonesSuper;
+    private int galonesExtra;
+    private int galonesDiesel;
     private String fechaPedido;
 
-    public Pedido(ArrayList<Float> totalGalonesPedido, String fecha) {
+    public Pedido(ArrayList<Integer> totalGalonesPedido, String fecha) {
         this.galonesSuper = totalGalonesPedido.get(0);
         this.galonesExtra = totalGalonesPedido.get(1);
         this.galonesDiesel = totalGalonesPedido.get(2);
