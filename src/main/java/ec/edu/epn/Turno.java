@@ -21,6 +21,21 @@ public class Turno {
         this.lecturaFinalDiesel = lecturaFinalDiesel;
         this.tipoTurno = tipoTurno;
     }
+    public ArrayList<Double> calcularVentasEnGalonesPorProducto() {
+        return new ArrayList<>(Arrays.asList((lecturaFinalSuper-lecturaInicialSuper), (lecturaFinalExtra-lecturaInicialExtra),
+                (lecturaFinalDiesel-lecturaInicialDiesel)));
+    }
+
+    public ArrayList<Double> calcularVentasEnDolares() {
+        Combustible combustible = new Combustible();
+        ArrayList<java.lang.Double> ventasGalones = calcularVentasEnGalonesPorProducto();
+        ArrayList<java.lang.Double> precios = new ArrayList<>(Arrays.asList(combustible.getPrecioSuper(), combustible.getPrecioExtra(), combustible.getPrecioDiesel()));
+        ArrayList<java.lang.Double> total = new ArrayList<>();
+        for(int i=0; i<precios.size(); i++) {
+            total.add(ventasGalones.get(i)*precios.get(i));
+        }
+        return total;
+    }
 
     public String getFecha() {
         return fecha;
@@ -88,21 +103,6 @@ public class Turno {
 
     public double calcularConsumo(double lecInicial, double lecFinal) {
         return lecFinal - lecInicial;
-    }
-    public ArrayList<Double> calcularVentasEnGalonesPorProducto() {
-        return new ArrayList<>(Arrays.asList((lecturaFinalSuper-lecturaInicialSuper), (lecturaFinalExtra-lecturaInicialExtra),
-                (lecturaFinalDiesel-lecturaInicialDiesel)));
-    }
-
-    public ArrayList<Double> calcularVentasEnDolares() {
-        Combustible combustible = new Combustible();
-        ArrayList<Double> ventasGalones = calcularVentasEnGalonesPorProducto();
-        ArrayList<Double> precios = new ArrayList<>(Arrays.asList(combustible.getPrecioSuper(), combustible.getPrecioExtra(), combustible.getPrecioDiesel()));
-        ArrayList<Double> total = new ArrayList<>();
-        for(int i=0; i<precios.size(); i++) {
-            total.add(ventasGalones.get(i)*precios.get(i));
-        }
-        return total;
     }
 
     @Override
