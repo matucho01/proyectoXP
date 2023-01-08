@@ -5,7 +5,6 @@ import java.util.Arrays;
 
 public class Turno {
     private String fecha;
-
     private double lecturaInicialSuper, lecturaInicialExtra, lecturaInicialDiesel;
 
     private double lecturaFinalSuper, lecturaFinalExtra, lecturaFinalDiesel;
@@ -95,12 +94,16 @@ public class Turno {
                 (lecturaFinalDiesel-lecturaInicialDiesel)));
     }
 
-    /*public ArrayList<Double> calcularVentasEnDolares() {
-        for(int i=0; i<) {
-
+    public ArrayList<Double> calcularVentasEnDolares() {
+        Combustible combustible = new Combustible();
+        ArrayList<Double> ventasGalones = calcularVentasEnGalonesPorProducto();
+        ArrayList<Double> precios = new ArrayList<>(Arrays.asList(combustible.getPrecioSuper(), combustible.getPrecioExtra(), combustible.getPrecioDiesel()));
+        ArrayList<Double> total = new ArrayList<>();
+        for(int i=0; i<precios.size(); i++) {
+            total.add(ventasGalones.get(i)*precios.get(i));
         }
-        return
-    }*/
+        return total;
+    }
 
     @Override
     public String toString() {
