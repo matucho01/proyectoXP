@@ -2,12 +2,14 @@ package ec.edu.epn;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Scanner;
 
 public class ReporteTurno {
     private double ventasEfectivo;
     private double ventasTarjeta;
     private double ventasLubricantes;
     private int lubricantesVendidos;
+    private double cobrosRetiros;
     private ArrayList<Integer> billetes;
     private ArrayList<Integer> monedas;
     private LectorDatos lectorDatos = new LectorDatos();
@@ -44,6 +46,31 @@ public class ReporteTurno {
         this.ventasLubricantes = this.lubricantesVendidos*3.5;
     }
 
+    public void registrarPagoRetiro(int respuesta) {
+        Scanner sc = new Scanner(System.in);
+        if(respuesta == 0) {
+            System.out.println("No se realizan cobros ni retiros");
+        } else {
+            if(respuesta == 1) {
+                System.out.println("Ingrese el total del cobro registrado: ");
+                double cobro = Double.parseDouble(sc.nextLine());
+                registrarCobro(cobro);
+            } else {
+                System.out.println("Ingrese el total del retiro registrado: ");
+                double retiro = Double.parseDouble(sc.nextLine());
+                registrarRetiro(retiro);
+            }
+        }
+    }
+
+    public void registrarCobro(double monto) {
+        this.cobrosRetiros += monto;
+    }
+
+    public void registrarRetiro(double monto) {
+        this.cobrosRetiros -= monto;
+    }
+
     public double getVentasEfectivo() {
         return ventasEfectivo;
     }
@@ -66,5 +93,9 @@ public class ReporteTurno {
 
     public int getLubricantesVendidos() {
         return lubricantesVendidos;
+    }
+
+    public double getCobrosRetiros() {
+        return this.cobrosRetiros;
     }
 }

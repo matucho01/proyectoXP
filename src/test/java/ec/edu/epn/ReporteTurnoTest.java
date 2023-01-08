@@ -58,4 +58,17 @@ public class ReporteTurnoTest {
         assertEquals(expected,reporteTurno.getVentasLubricantes(),0.01);
     }
 
+    @Test
+    public void given_money_withdrawal_when_subtraction_then_ok() {
+        reporteTurno.registrarRetiro(25);
+        double expected = -25.0;
+        assertEquals(expected, reporteTurno.getCobrosRetiros(), 0.01);
+    }
+    @Test
+    public void given_money_payment_when_addition_then_ok() {
+        reporteTurno.registrarCobro(25);
+        double expected = 25.0;
+        assertEquals(expected, reporteTurno.getCobrosRetiros(), 0.01);
+    }
+
 }
