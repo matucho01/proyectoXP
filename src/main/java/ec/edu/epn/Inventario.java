@@ -19,6 +19,20 @@ public class Inventario {
         this.imprimirNivelTanques();
     }
 
+    public void registrarDescarga(int volumenSuper, int volumenExtra, int volumenDiesel) {
+        this.galonesSuper += (float)volumenSuper;
+        this.galonesExtra += (float)volumenExtra;
+        this.galonesDiesel += (float)volumenDiesel;
+        System.out.println("Descarga registrada exitosamente:");
+        this.imprimirDescargas(volumenSuper, volumenExtra, volumenDiesel);
+    }
+
+    public void imprimirDescargas(int volumenSuper, int volumenExtra, int volumenDiesel) {
+        System.out.println("Descarga en el tanque Super: " + volumenSuper);
+        System.out.println("Descarga en el tanque Extra: " + volumenExtra);
+        System.out.println("Descarga en el tanque Diesel: " + volumenDiesel);
+    }
+
     public void imprimirNivelTanques() {
         System.out.println("Nivel tanque Super: " + this.galonesSuper);
         System.out.println("Nivel tanque Extra: " + this.galonesExtra);

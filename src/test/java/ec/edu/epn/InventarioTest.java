@@ -13,4 +13,12 @@ public class InventarioTest {
         assertEquals(2733.6f, inventario.getGalonesExtra(), 0.1);
         assertEquals(1422.9f, inventario.getGalonesDiesel(), 0.1);
     }
+    @Test
+    public void given_fuel_dumping_when_inserting_data_then_ok(){
+        Inventario inventario = new Inventario();
+        inventario.registrarDescarga(0, 6000, 3000);
+        assertEquals(0.0f, inventario.getGalonesSuper(), 0.1);
+        assertEquals(6000.0f, inventario.getGalonesExtra(), 0.1);
+        assertEquals(3000.0f, inventario.getGalonesDiesel(),0.1);
+    }
 }
