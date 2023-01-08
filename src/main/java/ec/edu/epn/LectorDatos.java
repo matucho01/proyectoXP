@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class LectorDatos {
     public ArrayList obtenerLecturasPorTurno() {
@@ -39,6 +40,26 @@ public class LectorDatos {
             System.out.println("No se encuentra el archivo de lecturas: " + e);
         }
         return precios;
+    }
+
+    public ArrayList obtenerVentasTarjeta(){
+        ArrayList<ArrayList> ventas = new ArrayList<>();
+        String line = "";
+        String splitBy = ",";
+        try {
+            BufferedReader br = new BufferedReader(new FileReader("documents/ventas_tarjeta.txt"));
+            while ((line = br.readLine()) != null) {
+                String[] datos = line.split(splitBy);
+                ArrayList<String> ventaTurno =  new ArrayList();
+                for(int i=0; i<datos.length; i++) {
+                    ventaTurno.add(datos[i]);
+                }
+                ventas.add(ventaTurno);
+            }
+        } catch (IOException e) {
+            System.out.println("No se encuentra el archivo de lecturas: " + e);
+        }
+        return ventas;
     }
 
     public double parseDouble(String dato) {
