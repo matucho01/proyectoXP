@@ -6,6 +6,8 @@ import java.util.Arrays;
 public class ReporteTurno {
     private double ventasEfectivo;
     private double ventasTarjeta;
+    private double ventasLubricantes;
+    private int lubricantesVendidos;
     private ArrayList<Integer> billetes;
     private ArrayList<Integer> monedas;
     private LectorDatos lectorDatos = new LectorDatos();
@@ -34,6 +36,14 @@ public class ReporteTurno {
         }
     }
 
+    public void ingresarLubricantesVendidos(int numLubricantes){
+        this.lubricantesVendidos = numLubricantes;
+    }
+
+    public void calcularVentasLubricantes(){
+        this.ventasLubricantes = this.lubricantesVendidos*3.5;
+    }
+
     public double getVentasEfectivo() {
         return ventasEfectivo;
     }
@@ -48,5 +58,13 @@ public class ReporteTurno {
 
     public double getVentasTarjeta() {
         return ventasTarjeta;
+    }
+
+    public double getVentasLubricantes() {
+        return ventasLubricantes;
+    }
+
+    public int getLubricantesVendidos() {
+        return lubricantesVendidos;
     }
 }

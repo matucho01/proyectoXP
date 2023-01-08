@@ -44,4 +44,19 @@ public class ReporteTurnoTest {
         assertEquals(expected,reporteTurno.getVentasTarjeta(),0.01);
     }
 
+    @Test
+    public void given_number_lubricants_when_insert_then_ok(){
+        reporteTurno.ingresarLubricantesVendidos(14);
+        int expected = 14;
+        assertEquals(expected,reporteTurno.getLubricantesVendidos());
+    }
+
+    @Test
+    public void given_number_lubricants_when_calculate_sales_then_ok(){
+        reporteTurno.ingresarLubricantesVendidos(14);
+        reporteTurno.calcularVentasLubricantes();
+        double expected = 49;
+        assertEquals(expected,reporteTurno.getVentasLubricantes(),0.01);
+    }
+
 }
