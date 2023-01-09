@@ -13,6 +13,7 @@ public class ReporteTurno {
     private double ventasCreditoSuper;
     private double ventasCreditoExtra;
     private double ventasCreditoDiesel;
+    private double ventasCreditos;
     private double ventasTotales;
     private ArrayList<Integer> billetes;
     private ArrayList<Integer> monedas;
@@ -59,6 +60,7 @@ public class ReporteTurno {
                 this.ventasCreditoDiesel = Double.parseDouble(ventas.get(i).get(4));
             }
         }
+        sumarVentasCredito();
     }
 
     public void registrarPagoRetiro(int respuesta) {
@@ -86,6 +88,9 @@ public class ReporteTurno {
         this.cobrosRetiros -= monto;
     }
 
+    public void sumarVentasCredito(){
+        this.ventasCreditos = this.ventasCreditoDiesel+this.ventasCreditoExtra+this.ventasCreditoSuper;
+    }
     public double obtenerVentasTotales(){
         this.ventasTotales = this.ventasCreditoDiesel+this.ventasCreditoExtra+this.ventasCreditoSuper
                              +this.ventasTarjeta+this.ventasEfectivo;
