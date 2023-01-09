@@ -82,8 +82,9 @@ public class Registro {
         float estimadorExtra = 0.0F;
         float estimadorDiesel = 0.0F;
 
-        ArrayList pedido;
-        for(pedido = new ArrayList(); total <= 10.0F; ++this.numDias) {
+        ArrayList pedido = new ArrayList<Float>();
+
+        while(total <= 10) {
             total = 0.0F;
             pedido.clear();
             pedido.add(estimadorSuper);
@@ -148,5 +149,9 @@ public class Registro {
 
     public ArrayList getConsumoDiesel() {
         return this.consumoDiesel;
+    }
+
+    public int getNumDias() {
+        return this.numDias;
     }
 }
