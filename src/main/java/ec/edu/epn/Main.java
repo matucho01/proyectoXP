@@ -117,6 +117,6 @@ public class Main {
         System.out.println("Ingrese el nombre del archivo a visualizar: ");
         respuesta = sc.nextLine();
         gestorReporte.mostrarReporte(respuesta);
-        System.out.println("hola1");
+        System.out.println("hola122");
     }
 }
