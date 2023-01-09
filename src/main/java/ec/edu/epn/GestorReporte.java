@@ -5,20 +5,27 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class GestorReporte {
-    private String[] archivos;
-    public void listarPedidos() {
-        File dir = new File("/reportes");
-        this.archivos = dir.list();
-        if (archivos == null)
+    public boolean listarReportes() {
+        String[] archivos;
+        File dir = new File("./reportes");
+        archivos = dir.list();
+        if (archivos == null) {
             System.out.println("No hay archivos en el directorio especificado");
-        else {
-            for (int i=0; i<archivos.length; i++)
+        }else {
+            for (int i=0; i<archivos.length; i++) {
                 System.out.println(archivos[i]);
+                return true;
+            }
         }
+        return false;
     }
 
-    public void mostrarReporte(String nombreArchivo) {
-        for(int i=0; i<this.archivos.length; i++) {
+    public boolean mostrarReporte(String nombreArchivo) {
+        String[] archivos;
+        String pathArchivos = "./reportes/";
+        File dir = new File(pathArchivos);
+        archivos = dir.list();
+        for(int i=0; i<archivos.length; i++) {
             if(nombreArchivo.equals(archivos[i])) {
                 try {
                     File f = new File(nombreArchivo);
@@ -28,11 +35,13 @@ public class GestorReporte {
                         System.out.println(data);
                     }
                     myReader.close();
+                    return true;
                 } catch (FileNotFoundException e) {
                     System.out.println("Existió un error al intentar leer el archivo");
                     e.printStackTrace();
                 }
             }
         }
+        return false;
     }
 }

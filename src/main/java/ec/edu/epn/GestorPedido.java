@@ -6,7 +6,6 @@ import java.util.Scanner;
 
 public class GestorPedido {
 
-    //private String[] archivos;
     public boolean listarPedidos() {
         String[] archivos;
         File dir = new File("./pedidos");
