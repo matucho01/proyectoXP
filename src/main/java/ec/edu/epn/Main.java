@@ -12,7 +12,7 @@ public class Main {
         ArrayList<Turno> turnos = lectorDatos.obtenerLecturasPorTurno();
         ArrayList<ReporteTurno> reportesTurno = new ArrayList<>();
         for (int i=0;i<3;i++) {
-            ReporteTurno reporteTurno = new ReporteTurno("02/10/22", ""+i);
+            ReporteTurno reporteTurno = new ReporteTurno("02-10-22", ""+i);
             // Ingreso de billetes
             System.out.println("---- Ingrese el número de billetes de cada denominación ---- ");
             System.out.println("Billetes de cien: ");
