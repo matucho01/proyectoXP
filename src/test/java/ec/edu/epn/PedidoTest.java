@@ -13,7 +13,7 @@ public class PedidoTest {
     String fecha;
     @Before
     public void setUp(){
-        ArrayList<Integer> totalGalonesPedido = new ArrayList<>(Arrays.asList(0, 4000, 6000));
+        ArrayList<Float> totalGalonesPedido = new ArrayList<>(Arrays.asList(0F, 4000F, 6000F));
         fecha = "02-10-22";
         pedido = new Pedido(totalGalonesPedido, fecha);
     }

@@ -1,6 +1,0 @@
-El pedido es:
-Fecha: 02/10/22
-Super: 0 galones
-Extra: 6000 galones
-Diesel: 4000 galones
-Revisado por: Gerente

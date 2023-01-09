@@ -76,7 +76,7 @@ public class Registro {
         return pos;
     }
 
-    public ArrayList<Integer> proyectarVentas(String fecha, ArrayList<Turno> turnos, float galonesSuper, float galonesExtra, float galonesDiesel) {
+    public ArrayList<Float> proyectarVentas(String fecha, ArrayList<Turno> turnos, float galonesSuper, float galonesExtra, float galonesDiesel) {
         float total = 0.0F;
         float estimadorSuper = 0.0F;
         float estimadorExtra = 0.0F;

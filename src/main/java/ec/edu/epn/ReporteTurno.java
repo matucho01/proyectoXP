@@ -143,4 +143,8 @@ public class ReporteTurno {
     public double getVentasCreditos() {
         return ventasCreditos;
     }
+
+    public String getFecha() {
+        return this.fecha;
+    }
 }

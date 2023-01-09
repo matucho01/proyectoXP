@@ -12,7 +12,7 @@ public class LectorDatos {
         String line = "";
         String splitBy = ",";
         try {
-            BufferedReader br = new BufferedReader(new FileReader("documents/lecturas_02-10-2022.txt"));
+            BufferedReader br = new BufferedReader(new FileReader("documents/lecturas_octubre_turnos.csv"));
             while ((line = br.readLine()) != null) {
                 String[] datos = line.split(splitBy);
                 turnos.add(new Turno(datos[0], parseDouble(datos[1]), parseDouble(datos[2]), parseDouble(datos[3]),

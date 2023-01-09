@@ -9,12 +9,13 @@ import java.util.Iterator;
 
 public class ReporteDiario {
 
-    public String cuadreTurnos(String fecha, ArrayList<ReporteTurno> reporteTurno, ArrayList<Turno> turnos){
-        int posReporte = posFecha(fecha, turnos);
+    public String cuadreTurnos(String fecha, ArrayList<ReporteTurno> reportesTurno, ArrayList<Turno> turnos){
+        int posTurno = posFecha(fecha, turnos);
+        int posReporteTurno = posFecha1(fecha, reportesTurno);
         String cuadre = "";
 
         for(int i=0; i<3; i++){
-            double diferencia = turnos.get(posReporte).obtenerVentasTotales() - reporteTurno.get(posReporte).obtenerVentasTotales();
+            double diferencia = turnos.get(posTurno+i).obtenerVentasTotales() - reportesTurno.get(posReporteTurno+i).obtenerVentasTotales();
             if(diferencia < 0){
                 cuadre = "\nEn el turno del "+ fecha + " en la " + obtenerTipoTurno(i) + " sobran: $" + Math.abs(diferencia);
             }else if(diferencia > 0){
@@ -52,23 +53,39 @@ public class ReporteDiario {
         return pos;
     }
 
-    public void crearReporteDiario(String fecha, ArrayList<ReporteTurno> reporteTurno, ArrayList<Turno> turnos) {
-        int posReporte = posFecha(fecha, turnos);
+    private int posFecha1(String fecha, ArrayList<ReporteTurno> reportesTurno) {
+        int pos = 0;
+        Iterator var4 = reportesTurno.iterator();
+        ReporteTurno reporteTurno;
+        do {
+            if (!var4.hasNext()) {
+                return pos;
+            }
+
+            reporteTurno = (ReporteTurno)var4.next();
+        } while(!reporteTurno.getFecha().equals(fecha));
+
+        pos = reportesTurno.indexOf(reporteTurno);
+        return pos;
+    }
+
+    public void crearReporteDiario(String fecha, ArrayList<ReporteTurno> reportesTurno, ArrayList<Turno> turnos) {
+        int posReporteTurno = posFecha1(fecha, reportesTurno);
         String reporte = "";
         reporte = "Reporte diario: " + fecha +
                 "\nDetalle del turno de la mañana:" +
-                "\nEfectivo: $" + reporteTurno.get(posReporte).getVentasEfectivo() +
-                "\nTarjeta: $" + reporteTurno.get(posReporte).getVentasTarjeta()+
-                "\nCrédito: $" + reporteTurno.get(posReporte).getVentasCreditos() +
-                "\nVenta lubricantes: $" + reporteTurno.get(posReporte).getVentasLubricantes() +
-                "\nVentas totales: $" + (reporteTurno.get(posReporte).obtenerVentasTotales() + reporteTurno.get(posReporte).getVentasLubricantes()) +
-                "\nObservaciones: " + cuadreTurnos(fecha, reporteTurno, turnos);
+                "\nEfectivo: $" + reportesTurno.get(posReporteTurno).getVentasEfectivo() +
+                "\nTarjeta: $" + reportesTurno.get(posReporteTurno).getVentasTarjeta()+
+                "\nCrédito: $" + reportesTurno.get(posReporteTurno).getVentasCreditos() +
+                "\nVenta lubricantes: $" + reportesTurno.get(posReporteTurno).getVentasLubricantes() +
+                "\nVentas totales: $" + (reportesTurno.get(posReporteTurno).obtenerVentasTotales() + reportesTurno.get(posReporteTurno).getVentasLubricantes()) +
+                "\nObservaciones: " + cuadreTurnos(fecha, reportesTurno, turnos);
         generarArchivoReporteDiario(fecha, reporte);
     }
     public boolean generarArchivoReporteDiario(String fecha, String reporteDiario) {
         try {
             String nombreArchivo = "reporte_diario_"+ fecha +".txt";
-            File archivo = new File("./reportes/", nombreArchivo);
+            File archivo = new File("./reportes", nombreArchivo);
             if(archivo.createNewFile()) {
                 System.out.println("Archivo creado exitosamente");
                 FileWriter fw = new FileWriter(nombreArchivo);

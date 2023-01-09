@@ -10,6 +10,7 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         LectorDatos lectorDatos = new LectorDatos();
         ArrayList<Turno> turnos = lectorDatos.obtenerLecturasPorTurno();
+        System.out.println("tamaño turnos: " + turnos.size());
         ArrayList<ReporteTurno> reportesTurno = new ArrayList<>();
         for (int i=0;i<3;i++) {
             ReporteTurno reporteTurno = new ReporteTurno("02-10-22", ""+i);
@@ -66,10 +67,11 @@ public class Main {
             reporteTurno.obtenerVentasTotales();
             reportesTurno.add(reporteTurno);
         }
+
         //Reporte diario
         ReporteDiario reporteDiario = new ReporteDiario();
-        reporteDiario.cuadreTurnos("02/10/22",reportesTurno,turnos);
-        reporteDiario.crearReporteDiario("02/10/22",reportesTurno,turnos);
+        reporteDiario.cuadreTurnos("24-10-22",reportesTurno,turnos);
+        reporteDiario.crearReporteDiario("24-10-22",reportesTurno,turnos);
         //Inventario
         Inventario inventario = new Inventario();
         System.out.println("---- Ingrese la medición del nivel de los tanques ----");
@@ -94,11 +96,11 @@ public class Main {
 
         //Registro para el pedido
         Registro registro = new Registro();
-        ArrayList<Integer> totalGalonesPedido = registro.proyectarVentas("07/10/22",turnos
+        ArrayList<Float> totalGalonesPedido = registro.proyectarVentas("24-10-22",turnos
                 ,inventario.getGalonesSuper(), inventario.getGalonesExtra(), inventario.getGalonesDiesel());
 
         //Generacion del Pedido
-        Pedido pedido = new Pedido(totalGalonesPedido,"07/10/22");
+        Pedido pedido = new Pedido(totalGalonesPedido,"24-10-22");
         pedido.generarArchivo();
 
         //Visualizar archivos
