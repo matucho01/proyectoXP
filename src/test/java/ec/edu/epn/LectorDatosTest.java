@@ -10,12 +10,12 @@ public class LectorDatosTest {
     LectorDatos lectorDatos = new LectorDatos();
     @Test
     public void given_a_list_of_turns_when_comparing_then_ok() {
-        Turno turno1 = new Turno("02/10/22", 541245.23, 789543.55,
-                354765.65, 541378.43, 787678.23, 354801.41, 0);
-        Turno turno2 = new Turno("02/10/22", 541378.43, 787678.23,
-                354801.41, 541478.43, 787778.23, 354901.41, 1);
-        Turno turno3 = new Turno("02/10/22", 541478.43, 787778.23,
-                354901.41, 541578.43, 787878.23, 355001.41, 2);
+        Turno turno1 = new Turno("02-10-22", 443196.34, 286690.74,
+                371706.48, 443207.39, 287192.01, 372008.05, 0);
+        Turno turno2 = new Turno("02-10-22", 443207.39, 287192.01,
+                372008.05, 443236.04, 287704.88, 372333.19, 1);
+        Turno turno3 = new Turno("02-10-22", 443236.04, 287704.88,
+                372333.19, 443260.49, 288799.46, 372845.79, 2);
         ArrayList<Turno> expected = new ArrayList<>(Arrays.asList(turno1, turno2, turno3));
         ArrayList<Turno> actual = lectorDatos.obtenerLecturasPorTurno();
         for(int i=0; i< expected.size(); i++) {

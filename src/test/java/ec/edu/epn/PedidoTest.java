@@ -29,9 +29,9 @@ public class PedidoTest {
         String actual = pedido.crearPedido();
         String expected = "El pedido es:" +
                 "\nFecha: " + "02-10-22" +
-                "\nSuper: " + 0 + "00" +
-                "\nExtra: " + 4000 + "00" +
-                "\nDiesel: " + 6000 + "00" +
+                "\nSuper: " + "0.000" +
+                "\nExtra: " + "4000.000" +
+                "\nDiesel: " + "6000.000" +
                 "\nRevisado por: Gerente";
         assertEquals(expected, actual);
     }

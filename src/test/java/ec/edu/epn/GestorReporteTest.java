@@ -20,7 +20,7 @@ public class GestorReporteTest {
     @Test
     public void given_a_string_when_reading_file_then_ok() {
         boolean expected = true;
-        String nombreArchivo = "reporte_diario_22-09-22.txt";
+        String nombreArchivo = "prueba.txt";
         assertEquals(expected, gestorReporte.mostrarReporte(nombreArchivo));
     }
 

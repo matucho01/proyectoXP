@@ -1,0 +1,11 @@
+ec\edu\epn\Inventario.class
+ec\edu\epn\Pedido.class
+ec\edu\epn\Main.class
+ec\edu\epn\Registro.class
+ec\edu\epn\GestorReporte.class
+ec\edu\epn\Combustible.class
+ec\edu\epn\ReporteDiario.class
+ec\edu\epn\ReporteTurno.class
+ec\edu\epn\LectorDatos.class
+ec\edu\epn\GestorPedido.class
+ec\edu\epn\Turno.class
