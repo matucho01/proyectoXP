@@ -1,6 +1,0 @@
-El pedido es:
-Fecha: 02-10-22
-Super: 0.000
-Extra: 4000.000
-Diesel: 6000.000
-Revisado por: Gerente
