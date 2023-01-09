@@ -12,7 +12,7 @@ public class ReporteTurnoTest {
     ReporteTurno reporteTurno;
     @Before
     public void setUp(){
-        reporteTurno = new ReporteTurno("02/10/22","2");
+        reporteTurno = new ReporteTurno("02-10-22","2");
         reporteTurno.ingresoEfectivoBilletes(1,1,8,12,21,26);
         reporteTurno.ingresoEfectivoMonedas(105,50,120,150,73,89);
         reporteTurno.ingresarLubricantesVendidos(14);

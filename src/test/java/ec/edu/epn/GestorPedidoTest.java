@@ -22,7 +22,7 @@ public class GestorPedidoTest {
     @Test
     public void given_a_string_when_reading_file_then_ok() {
         boolean expected = true;
-        String nombreArchivo = "pedido_02-10-22.txt";
+        String nombreArchivo = "prueba.txt";
         assertEquals(expected, gestorPedido.mostrarPedido(nombreArchivo));
     }
 }

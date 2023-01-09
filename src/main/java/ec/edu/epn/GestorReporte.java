@@ -28,7 +28,7 @@ public class GestorReporte {
         for(int i=0; i<archivos.length; i++) {
             if(nombreArchivo.equals(archivos[i])) {
                 try {
-                    File f = new File(nombreArchivo);
+                    File f = new File(pathArchivos+nombreArchivo);
                     Scanner myReader = new Scanner(f);
                     while (myReader.hasNextLine()) {
                         String data = myReader.nextLine();
