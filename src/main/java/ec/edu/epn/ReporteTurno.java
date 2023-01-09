@@ -136,4 +136,8 @@ public class ReporteTurno {
     public double getVentasCreditoDiesel() {
         return ventasCreditoDiesel;
     }
+
+    public double getVentasCreditos() {
+        return ventasCreditos;
+    }
 }
