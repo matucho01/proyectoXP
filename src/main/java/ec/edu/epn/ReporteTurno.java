@@ -5,19 +5,22 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 public class ReporteTurno {
-    private double ventasEfectivo;
-    private double ventasTarjeta;
-    private double ventasLubricantes;
+    private double ventasEfectivo, ventasTarjeta, ventasLubricantes;
     private int lubricantesVendidos;
     private double cobrosRetiros;
-    private double ventasCreditoSuper;
-    private double ventasCreditoExtra;
-    private double ventasCreditoDiesel;
+    private double ventasCreditoSuper, ventasCreditoExtra, ventasCreditoDiesel;
     private double ventasCreditos;
     private double ventasTotales;
     private ArrayList<Integer> billetes;
     private ArrayList<Integer> monedas;
     private LectorDatos lectorDatos = new LectorDatos();
+    private String fecha;
+    private String tipoTurno;
+
+    public ReporteTurno(String fecha, String tipoTurno) {
+        this.fecha = fecha;
+        this.tipoTurno = tipoTurno;
+    }
     public void ingresoEfectivoBilletes(int cien, int cincuenta, int veinte, int diez, int cinco, int uno) {
         this.billetes = new ArrayList<Integer>(Arrays.asList(cien,cincuenta,veinte,diez,cinco,uno));
     }
@@ -34,7 +37,7 @@ public class ReporteTurno {
         this.ventasEfectivo = efectivoBilletes+efectivoMonedas;
     }
 
-    public void obtenerPagosTarjeta(String fecha,String tipoTurno){
+    public void obtenerPagosTarjeta(){
         ArrayList<ArrayList<String>> ventas = lectorDatos.obtenerVentasTarjeta();
         for (int i=0;i< ventas.size();i++){
             if (ventas.get(i).get(0).equals(fecha) && ventas.get(i).get(1).equals(tipoTurno)){
@@ -51,7 +54,7 @@ public class ReporteTurno {
         this.ventasLubricantes = this.lubricantesVendidos*3.5;
     }
 
-    public void obtenerPagosCredito(String fecha,String tipoTurno){
+    public void obtenerPagosCredito(){
         ArrayList<ArrayList<String>> ventas = lectorDatos.obtenerVentasCredito();
         for (int i=0;i< ventas.size();i++){
             if (ventas.get(i).get(0).equals(fecha) && ventas.get(i).get(1).equals(tipoTurno)){
