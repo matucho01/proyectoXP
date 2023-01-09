@@ -12,7 +12,7 @@ public class ReporteTurnoTest {
     ReporteTurno reporteTurno;
     @Before
     public void setUp(){
-        reporteTurno = new ReporteTurno();
+        reporteTurno = new ReporteTurno("02/10/22","2");
         reporteTurno.ingresoEfectivoBilletes(1,1,8,12,21,26);
         reporteTurno.ingresoEfectivoMonedas(105,50,120,150,73,89);
         reporteTurno.ingresarLubricantesVendidos(14);
@@ -40,8 +40,8 @@ public class ReporteTurnoTest {
 
     @Test
     public void given_date_shift_when_get_payments_then_ok(){
-        reporteTurno.obtenerPagosTarjeta("02/10/22","1");
-        double expected = 340.13;
+        reporteTurno.obtenerPagosTarjeta();
+        double expected = 354.57;
         assertEquals(expected,reporteTurno.getVentasTarjeta(),0.01);
     }
 
@@ -73,7 +73,7 @@ public class ReporteTurnoTest {
 
     @Test
     public void given_date_shift_when_get_payments_credits_then_ok(){
-        reporteTurno.obtenerPagosCredito("02/10/22","2");
+        reporteTurno.obtenerPagosCredito();
         double expected[] = {0,39.15,71.20};
         assertEquals(expected[0],reporteTurno.getVentasCreditoSuper(),0.01);
         assertEquals(expected[1],reporteTurno.getVentasCreditoExtra(),0.01);
@@ -83,9 +83,9 @@ public class ReporteTurnoTest {
     @Test
     public void given_sales_when_calculating_total_sales_then_ok(){
         reporteTurno.calcularEfectivo();
-        reporteTurno.obtenerPagosTarjeta("02/10/22","1");
-        reporteTurno.obtenerPagosCredito("02/10/22","2");
-        double expected = 1191.02;
+        reporteTurno.obtenerPagosTarjeta();
+        reporteTurno.obtenerPagosCredito();
+        double expected = 1205.46;
         assertEquals(expected, reporteTurno.obtenerVentasTotales(), 0.1);
     }
 }
