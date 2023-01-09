@@ -68,7 +68,7 @@ public class ReporteDiario {
     public boolean generarArchivoReporteDiario(String fecha, String reporteDiario) {
         try {
             String nombreArchivo = "reporte_diario_"+ fecha +".txt";
-            File archivo = new File("/reportes diarios", nombreArchivo);
+            File archivo = new File("./reportes/", nombreArchivo);
             if(archivo.createNewFile()) {
                 System.out.println("Archivo creado exitosamente");
                 FileWriter fw = new FileWriter(nombreArchivo);
