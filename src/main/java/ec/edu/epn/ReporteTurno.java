@@ -13,6 +13,7 @@ public class ReporteTurno {
     private double ventasCreditoSuper;
     private double ventasCreditoExtra;
     private double ventasCreditoDiesel;
+    private double ventasTotales;
     private ArrayList<Integer> billetes;
     private ArrayList<Integer> monedas;
     private LectorDatos lectorDatos = new LectorDatos();
@@ -83,6 +84,12 @@ public class ReporteTurno {
 
     public void registrarRetiro(double monto) {
         this.cobrosRetiros -= monto;
+    }
+
+    public double obtenerVentasTotales(){
+        this.ventasTotales = this.ventasCreditoDiesel+this.ventasCreditoExtra+this.ventasCreditoSuper
+                             +this.ventasTarjeta+this.ventasEfectivo;
+        return this.ventasTotales;
     }
 
     public double getVentasEfectivo() {
