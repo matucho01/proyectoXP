@@ -8,6 +8,7 @@ public class Turno {
     private double lecturaInicialSuper, lecturaInicialExtra, lecturaInicialDiesel;
 
     private double lecturaFinalSuper, lecturaFinalExtra, lecturaFinalDiesel;
+    private double ventasTotales;
 
     private int tipoTurno; // 0, 1, 2 -> mañana, tarde, noche
 
@@ -35,6 +36,12 @@ public class Turno {
             total.add(ventasGalones.get(i)*precios.get(i));
         }
         return total;
+    }
+
+    private double obtenerVentasTotales(){
+        ArrayList<Double> ventas = calcularVentasEnDolares();
+        this.ventasTotales = ventas.get(0)+ventas.get(1)+ventas.get(2);
+        return this.ventasTotales;
     }
 
     public String getFecha() {
