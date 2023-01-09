@@ -89,8 +89,7 @@ public class ReporteDiario {
             if(archivo.createNewFile()) {
                 System.out.println("Archivo creado exitosamente");
                 FileWriter fw = new FileWriter(nombreArchivo);
-                String pedido = reporteDiario;
-                fw.write(pedido);
+                fw.write(reporteDiario);
                 fw.close();
                 return true;
             }
