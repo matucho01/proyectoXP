@@ -123,7 +123,7 @@ public class Registro {
         return Float.parseFloat(this.formato.format((double)galonesNormalizados));
     }
 
-    private ArrayList<Float> obtenerMayor() {
+    public ArrayList<Float> obtenerMayor() {
         ArrayList<Float> mayorDemanda = new ArrayList();
         mayorDemanda.add((Float)((Comparable)Collections.max(this.consumoSuper)));
         mayorDemanda.add((Float)((Comparable)Collections.max(this.consumoExtra)));

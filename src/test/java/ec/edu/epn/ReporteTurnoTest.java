@@ -80,4 +80,12 @@ public class ReporteTurnoTest {
         assertEquals(expected[2],reporteTurno.getVentasCreditoDiesel(),0.01);
     }
 
+    @Test
+    public void given_sales_when_calculating_total_sales_then_ok(){
+        reporteTurno.calcularEfectivo();
+        reporteTurno.obtenerPagosTarjeta("02/10/22","1");
+        reporteTurno.obtenerPagosCredito("02/10/22","2");
+        double expected = 1191.02;
+        assertEquals(expected, reporteTurno.obtenerVentasTotales(), 0.1);
+    }
 }

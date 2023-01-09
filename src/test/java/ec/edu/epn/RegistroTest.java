@@ -38,4 +38,15 @@ public class RegistroTest {
             assertEquals(expected.get(i).toString(), registro.getConsumoDiesel().get(i), 0.5f);
         }
     }
+
+    @Test
+    public void given_3_lists_of_fuel_consumption_when_comparing_then_ok(){
+        Registro registro = new Registro();
+        ArrayList<Turno> turnos = new ArrayList(Arrays.asList());
+        registro.totalizarConsumosSemanales("", turnos);
+        ArrayList<Float> expected = new ArrayList(Arrays.asList(0.5F, 0.6F, 0.2F));
+        for(int i = 0; i < expected.size(); ++i) {
+            assertEquals(expected.get(i), registro.obtenerMayor().get(i), 0.5f);
+        }
+    }
 }
