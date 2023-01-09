@@ -79,14 +79,14 @@ public class ReporteDiario {
                 "\nCrédito: $" + reportesTurno.get(posReporteTurno).getVentasCreditos() +
                 "\nVenta lubricantes: $" + reportesTurno.get(posReporteTurno).getVentasLubricantes() +
                 "\nVentas totales: $" + (reportesTurno.get(posReporteTurno).obtenerVentasTotales() + reportesTurno.get(posReporteTurno).getVentasLubricantes());
-        reporte += "Reporte diario: " + fecha +
+        reporte += "\n" + fecha +
                 "\nDetalle del turno de la tarde:" +
                 "\nEfectivo: $" + reportesTurno.get(posReporteTurno+1).getVentasEfectivo() +
                 "\nTarjeta: $" + reportesTurno.get(posReporteTurno+1).getVentasTarjeta()+
                 "\nCrédito: $" + reportesTurno.get(posReporteTurno+1).getVentasCreditos() +
                 "\nVenta lubricantes: $" + reportesTurno.get(posReporteTurno+1).getVentasLubricantes() +
                 "\nVentas totales: $" + (reportesTurno.get(posReporteTurno+1).obtenerVentasTotales() + reportesTurno.get(posReporteTurno).getVentasLubricantes());
-        reporte += "Reporte diario: " + fecha +
+        reporte += "\n" +
                 "\nDetalle del turno de la noche:" +
                 "\nEfectivo: $" + reportesTurno.get(posReporteTurno+1).getVentasEfectivo() +
                 "\nTarjeta: $" + reportesTurno.get(posReporteTurno+1).getVentasTarjeta()+
