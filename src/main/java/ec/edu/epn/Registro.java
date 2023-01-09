@@ -97,8 +97,8 @@ public class Registro {
             if (estimadorSuper < 0.0F) {
                 estimadorSuper = 0.0F;
             }
-
             total = estimadorSuper + estimadorExtra + estimadorDiesel;
+            this.numDias += 1;
         }
 
         return pedido;
