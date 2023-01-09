@@ -38,7 +38,7 @@ public class Turno {
         return total;
     }
 
-    private double obtenerVentasTotales(){
+    public double obtenerVentasTotales(){
         ArrayList<Double> ventas = calcularVentasEnDolares();
         this.ventasTotales = ventas.get(0)+ventas.get(1)+ventas.get(2);
         return this.ventasTotales;
